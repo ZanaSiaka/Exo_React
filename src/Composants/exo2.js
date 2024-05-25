@@ -4,9 +4,11 @@ import '../css/Exo.css'
 function Exo2() {
     
     const inputRef = useRef(null)
+    const inputValRef = useRef("")
 
     useEffect(() =>{
         inputRef.current.focus()
+        console.log(inputValRef)
     })
 
 
