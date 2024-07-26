@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Landing = () => {
 
@@ -8,7 +9,7 @@ const Landing = () => {
     
     useEffect(() => {
         refWolverine.current.classList.add('startingImg')
-        setInterval(() => {
+        setTimeout(() => {
             refWolverine.current.classList.remove('startingImg')
             setBtn(true)
         }, 800)
@@ -26,7 +27,7 @@ const Landing = () => {
     const clearImg = () => {
         if (refWolverine.current.classList.contains('leftImg')) {
             refWolverine.current.classList.remove('leftImg')
-        } else if(refWolverine.current.classList.contains('leftImg')) {
+        } else if(refWolverine.current.classList.contains('rightImg')) {
             refWolverine.current.classList.remove('rightImg')
         }
     }
@@ -34,10 +35,10 @@ const Landing = () => {
     const displayBtn =  btn && (
         <Fragment>
             <div className='leftBox'>
-                <button onMouseOver={setLeftImg} onMouseOut={clearImg} className='btn-welcome'>Inscription</button>
+                <Link to='/signup' onMouseOver={setLeftImg} onMouseOut={clearImg} className='btn-welcome'>Inscription</Link>
             </div>
             <div className='rightBox'>
-                <button onMouseOver={setRightImg} onMouseOut={clearImg} className='btn-welcome'>Connexion</button>
+                <Link to='login' onMouseOver={setRightImg} onMouseOut={clearImg} className='btn-welcome'>Connexion</Link>
             </div>
         </Fragment>
     )
